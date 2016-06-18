@@ -10,14 +10,20 @@
         <link href="src/css/bootstrap.css" rel="stylesheet">
         <!-- Bootstrap -->
           <style type="text/css">
-                body { background: gray !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+                body { background: rgb(43, 62, 80) !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+              nav{
+                  background: rgb(223, 105, 26) !important;}
+              .navbar-brand{
+                  color: white !important;;
+              }
+              
           </style>
           <!-- Placing angular.js here for the ng-cloak to be effective -->
               <script type="text/javascript" src="vendor/js/angular.min.js"></script>
       </head>
       <body ng-controller="MainController" ng-cloak>
 
-          <nav class="navbar navbar-inverse navbar-static-top">
+          <nav class="navbar navbar-static-top">
             <div class="container-fluid">
                 <div class="navbar-header">
           <a class="navbar-brand" href="#">DepartSure</a>
@@ -30,7 +36,7 @@
             <div class="form-group" style="align-items:center">
               <input id="airportCode" type="textbox" placeholder="Enter Airport Code/City"class="form-control" ng-model="airportCode">
             </div>
-            <button type="submit" class="btn btn-default"  value="Get info" ng-click="searchAirport()" >Submit</button>
+            <button type="submit" class="btn brand-info"  value="Get info" ng-click="searchAirport()" >Submit</button>
           </form>
           <ul class="nav navbar-nav navbar-right">
           </ul>
@@ -38,11 +44,20 @@
       </div>
     </nav>
 
-          <h1 align="center" class="display-3" > {{airportName}}</h1>
+
           
-          <weather-icon></weather-icon>
+          <div ng-show="showData" class = "container">
+            <div class = "jumbotron">
+      <h3 align="center" class="display-3" > {{airportName}}</h3>
+      <weather-icon></weather-icon>
+ <weather-data></weather-data>
+              </div>
+   
+</div>
           
-          <weather-data></weather-data>
+          
+          
+         
 
         <!-- Scripts-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

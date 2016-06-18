@@ -23,36 +23,28 @@
 
     app.directive('weatherIcon',function(){
        return{
-         templateUrl: 'src/views/weathericon.html'  
+         templateUrl: 'src/js/directives/views/weatherIcon.html'  
        };
     });
 
     app.directive('weatherData', function(){
         return{
-            templateUrl:'src/views/data.html'
+            templateUrl:'src/js/directives/views/data.html'
         };
     });
 
     app.controller('MainController', function($scope, weatherIO){
         
-        $scope.gotData = false;
+        $scope.showData = false;
         $scope.searchAirport = function (){
 
               geocoder.geocode( { 'address': $scope.airportCode}, function(results, status)
               {
                 if (status == google.maps.GeocoderStatus.OK)
                 {
-
                     $scope.airportName = results[0].address_components[0].short_name;
                         weatherIO.getWeather(results[0].geometry.viewport).then(function(data){
-
-                            SetupSkyIcon(data.data.currently.icon);
-
-                             $scope.currentTemp = data.data.currently.apparentTemperature;
-                             $scope.currentWindSpeed = data.data.currently.windSpeed;
-                             $scope.currentWindDirection =  data.data.currently.windBearing;
-                             $scope.currentVisibility = data.data.currently.visibility;
-                            
+                            setData(data);
                         }, function(err){
                             alert(err);
                         });
@@ -66,9 +58,19 @@
         }
 
         function SetupSkyIcon(weatherIcon){
-             var skycons = new Skycons({"color": "WHITE"});
+             var skycons = new Skycons({"color": "ORANGE"});
              skycons.add("WeatherIcon", weatherIcon);
              skycons.play();
         }
+        
+            function setData(weatherData){
+
+                   SetupSkyIcon(weatherData.data.currently.icon);
+                   $scope.currentTemp = weatherData.data.currently.apparentTemperature;
+                   $scope.currentWindSpeed = weatherData.data.currently.windSpeed;
+                   $scope.currentWindDirection =  weatherData.data.currently.windBearing;
+                   $scope.currentVisibility = weatherData.data.currently.visibility;
+                   $scope.showData = true;            
+            }
 
     });
