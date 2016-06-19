@@ -1,6 +1,6 @@
-<div  class="row-fluid">
+<div ng-if="showData" class="row-fluid">
     <div class="span4">
-    <b>Current Visibility: </b>{{currentVisibility}} miles
+    <b >Current Visibility: </b> <span>{{currentVisibility}} miles</span>
     </div>
   <div class="span4">
 <b>Current Temperature: </b>{{currentTemp}} f
@@ -9,7 +9,7 @@
   <b>Current Wind Speed: </b>{{currentWindSpeed}} mph
 </div>
 <div class="span4">
-  <b>Wind Heading: </b>{{currentWindDirection}}
+  <b>Wind Bearing: </b>{{currentWindDirection}}
 </div>
 </div>
 
