@@ -8,7 +8,7 @@ let mainWindow
 
 function createWindow () {
  
-  mainWindow = new BrowserWindow({width: 900, height: 650})
+  mainWindow = new BrowserWindow({width: 1000, height: 650})
 
 
   mainWindow.loadURL(`file://${__dirname}/index.html`)
