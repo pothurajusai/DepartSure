@@ -1,25 +1,29 @@
-<table ng-if="showData"  class="table table-striped">
+<table class="table table-striped">
   <tbody>
     <tr>
       <th scope="row"></th>
       <td>Current Temperature:</td>
-      <td>{{currentTemp}} &#8457;</td>
+      <td><b>{{currentTemp}} &#8457;</b></td>
     </tr>
     <tr>
       <th scope="row"></th>
       <td>Current Visibility:</td>
-      <td>{{currentVisibility}} Miles</td>
-
+      <td ng-style="{'color':currentVisibility <= 3 ? 'red': 'green'}"> <b>{{currentVisibility}} Miles</b></td>
+    </tr>
+    <tr>
+      <th scope="row"></th>
+      <td>Precipitation Probability</td>
+      <td ng-style="{'color':precipProbability >= 50 ? 'red': 'green'}"><b>{{precipProbability}} % </b></td>
     </tr>
     <tr>
       <th scope="row"></th>
       <td>Current Wind Speed:</td>
-      <td>{{currentWindSpeed}} Mph</td>
+      <td ng-style="{'color':currentWindSpeed >= 15 ? 'red': 'green'}"><b>{{currentWindSpeed}} Mph</b></td>
     </tr>
     <tr>
       <th scope="row"></th>
       <td>Wind Bearing:</td>
-      <td>{{currentWindDirection}} &deg</td>
+      <td><b>{{currentWindDirection}} &deg</b></td>
     </tr>
   </tbody>
 </table>

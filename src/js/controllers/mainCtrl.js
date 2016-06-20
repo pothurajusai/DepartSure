@@ -1,5 +1,5 @@
     app.controller('MainController', function($scope, weatherIO){
-        
+
         $scope.showData = false;
         $scope.searchAirport = function (){
 
@@ -7,7 +7,7 @@
               {
                 if (status == google.maps.GeocoderStatus.OK)
                 {
-                    $scope.airportName = results[0].address_components[0].short_name;           
+                    $scope.airportName = results[0].address_components[0].short_name;
                         weatherIO.getWeather(results[0].geometry.viewport).then(function(data){
                             setData(data);
                             setGoogleMaps(results[0],data);
@@ -19,7 +19,7 @@
                 {
                 alert("Geocode was not successful for the following reason: " + status);
                 }
-        });   
+        });
 
         }
 
@@ -28,15 +28,15 @@
              skycons.add("WeatherIcon", weatherIcon);
              skycons.play();
         }
-        
-        
+
+
         function setGoogleMaps(data, forecastData){
 
             var Lat = data.geometry.viewport.H.H;
             var Long = data.geometry.viewport.j.H;
-            
+
             var myLatLng = new google.maps.LatLng(Lat,Long);
-            
+
 
             var map = new google.maps.Map(document.getElementById("map"),
             {
@@ -69,7 +69,7 @@
                  map: map
                 });
             }
-        
+
             function setData(weatherData){
 
                    SetupSkyIcon(weatherData.data.currently.icon);
@@ -77,7 +77,8 @@
                    $scope.currentWindSpeed = weatherData.data.currently.windSpeed;
                    $scope.currentWindDirection =  weatherData.data.currently.windBearing;
                    $scope.currentVisibility = weatherData.data.currently.visibility;
-                   $scope.showData = true;            
+                   $scope.precipProbability = Math.round((weatherData.data.currently.precipProbability) * 100);
+                   $scope.showData = true;
             }
 
     });
