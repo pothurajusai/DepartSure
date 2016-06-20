@@ -4,10 +4,12 @@
   "description": "Know the weather at your airport before you go flying!",
   "main": "main.js",
   "scripts": {
-    "start": "electron main.js"
+    "start": "electron .",
+    "build": "electron-packager . DepartSure"
   },
   "author": "Saivarun Pothuraju",
   "devDependencies": {
-    "electron-prebuilt": "^1.2.0"
+    "electron-prebuilt": "^1.2.0",
+    "electron-packager": "^7.0.4"
   }
 }
