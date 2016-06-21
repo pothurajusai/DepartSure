@@ -2,6 +2,7 @@
 
 DepartSure enables pilots (student pilots especially) to view how the weather conditions are at the airport of departure. Mertrics such as Visibility, Wind Speed, and Wind Direction can be used to determine if a VFR (Visual Flight Rules) flight can be conducted, and if so, which runway would be the most favorable for takeoff and landing. 
 
+Note: DepartSure uses Google Maps API to search for an airport. If the search is not successful using an ICAO code of the airport, try again with the airport's fullname or address.
 
 ##Screenshots:
 
