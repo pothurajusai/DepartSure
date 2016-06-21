@@ -17,7 +17,7 @@ The arrow on the map indicates the direction of the wind.
 ##Install:
 
 ####Mac OSX 
- [link text itself]: https://github.com/pothurajusai/DepartSure/releases/download/v1.0.0/DepartSure-OSX.zip
+ [Download Mac OS X]: https://github.com/pothurajusai/DepartSure/releases/download/v1.0.0/DepartSure-OSX.zip
 
 ###Disclaimer: 
 This application provides only high-level information about the weather conditions. Please double check with other weather sources before making the decision to fly.
