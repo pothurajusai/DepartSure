@@ -5,6 +5,9 @@
 
               geocoder.geocode( { 'address': $scope.airportCode}, function(results, status)
               {
+                  console.log('Google api call');
+                  console.log(results);
+                  console.log('End Google api call');
                 if (status == google.maps.GeocoderStatus.OK)
                 {
                     $scope.airportName = results[0].address_components[0].short_name;
@@ -32,8 +35,8 @@
 
         function setGoogleMaps(data, forecastData){
 
-            var Lat = data.geometry.viewport.H.H;
-            var Long = data.geometry.viewport.j.H;
+            var Lat = data.geometry.viewport.f.b;
+            var Long = data.geometry.viewport.b.b;
 
             var myLatLng = new google.maps.LatLng(Lat,Long);
 
@@ -71,7 +74,7 @@
             }
 
             function setData(weatherData){
-
+              console.log(weatherData);
                    SetupSkyIcon(weatherData.data.currently.icon);
                    $scope.currentTemp = weatherData.data.currently.apparentTemperature;
                    $scope.currentWindSpeed = weatherData.data.currently.windSpeed;
