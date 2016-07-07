@@ -19,5 +19,8 @@ The arrow on the map indicates the direction of the wind.
 ####Mac OSX 
   [https://github.com/pothurajusai/DepartSure/releases/download/v1.0.0/DepartSure-darwin-x64.zip]
 
+###Windows 
+  [https://github.com/pothurajusai/DepartSure/releases/download/v1.0.0/DepartSure-win32-x64.zip]
+
 ###Disclaimer: 
 This application provides only high-level information about the weather conditions. Please double check with other weather sources before making the decision to fly.
